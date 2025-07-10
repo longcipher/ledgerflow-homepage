@@ -21,33 +21,93 @@ const CONFIG: LedgerFlowConfig = LedgerFlowConfig {
 
 // Problems Configuration
 const PROBLEMS: &[(&str, &str, &str)] = &[
-    ("🏢", "High Barriers", "Forced to register a company just to receive payments."),
-    ("🔒", "Frozen Funds", "Your money is held hostage by platforms with opaque rules."),
-    ("💸", "Hidden Fees", "Unpredictable costs from currency conversion and cross-border fees."),
-    ("🌍", "Geographic Walls", "Locked out of the global market by banking and country restrictions."),
+    (
+        "🏢",
+        "High Barriers",
+        "Forced to register a company just to receive payments.",
+    ),
+    (
+        "🔒",
+        "Frozen Funds",
+        "Your money is held hostage by platforms with opaque rules.",
+    ),
+    (
+        "💸",
+        "Hidden Fees",
+        "Unpredictable costs from currency conversion and cross-border fees.",
+    ),
+    (
+        "🌍",
+        "Geographic Walls",
+        "Locked out of the global market by banking and country restrictions.",
+    ),
 ];
 
 // Solutions Configuration
 const SOLUTIONS: &[(&str, &str, &str)] = &[
-    ("⚡", "Truly Permissionless", "All you need is a crypto address. Start in seconds."),
-    ("�", "Self-Custody", "Funds go directly to your on-chain vault. Only you control them."),
-    ("💎", "Radical Transparency", "Pay only for blockchain gas. No hidden platform fees."),
-    ("🌐", "Genuinely Global", "Accept payments from anyone, anywhere in the world with internet."),
+    (
+        "⚡",
+        "Truly Permissionless",
+        "All you need is a crypto address. Start in seconds.",
+    ),
+    (
+        "�",
+        "Self-Custody",
+        "Funds go directly to your on-chain vault. Only you control them.",
+    ),
+    (
+        "💎",
+        "Radical Transparency",
+        "Pay only for blockchain gas. No hidden platform fees.",
+    ),
+    (
+        "🌐",
+        "Genuinely Global",
+        "Accept payments from anyone, anywhere in the world with internet.",
+    ),
 ];
 
 // How It Works Configuration
 const HOW_IT_WORKS: &[(&str, &str, &str)] = &[
-    ("1", "Create Link", "Generate a unique payment request via our Telegram Bot."),
-    ("2", "Customer Pays", "The payer sends USDC to the secure PaymentVault contract."),
-    ("3", "Receive Funds", "Payment is confirmed on-chain and funds arrive in your vault instantly."),
+    (
+        "1",
+        "Create Link",
+        "Generate a unique payment request via our Telegram Bot.",
+    ),
+    (
+        "2",
+        "Customer Pays",
+        "The payer sends USDC to the secure PaymentVault contract.",
+    ),
+    (
+        "3",
+        "Receive Funds",
+        "Payment is confirmed on-chain and funds arrive in your vault instantly.",
+    ),
 ];
 
 // Core Features Configuration
 const FEATURES: &[(&str, &str, &str)] = &[
-    ("🏛️", "Non-Custodial Vault", "A single, audited smart contract secures all funds, eliminating platform risk."),
-    ("🔗", "Seamless Multi-Chain", "Deploy on any EVM chain. Accept payments on Ethereum, Polygon, Base, and more."),
-    ("⚙️", "Programmable & Composable", "Ready for subscriptions, DeFi integrations, and multi-token payments."),
-    ("⛽", "Gasless Experience", "Support for permit signatures means a smoother, user-friendly payment flow."),
+    (
+        "🏛️",
+        "Non-Custodial Vault",
+        "A single, audited smart contract secures all funds, eliminating platform risk.",
+    ),
+    (
+        "🔗",
+        "Seamless Multi-Chain",
+        "Deploy on any EVM chain. Accept payments on Ethereum, Polygon, Base, and more.",
+    ),
+    (
+        "⚙️",
+        "Programmable & Composable",
+        "Ready for subscriptions, DeFi integrations, and multi-token payments.",
+    ),
+    (
+        "⛽",
+        "Gasless Experience",
+        "Support for permit signatures means a smoother, user-friendly payment flow.",
+    ),
 ];
 
 #[component]
@@ -69,20 +129,42 @@ fn App() -> impl IntoView {
 #[component]
 fn Navbar() -> impl IntoView {
     let (is_scrolled, _set_is_scrolled) = signal(false);
-    
+
     view! {
       <nav class=move || format!("navbar {}", if is_scrolled.get() { "scrolled" } else { "" })>
         <div class="nav-container">
-          <a href="#" class="logo">{CONFIG.brand_name}</a>
+          <a href="#" class="logo">
+            {CONFIG.brand_name}
+          </a>
           <ul class="nav-links">
-            <li><a href="#problems" class="nav-link">"Why LedgerFlow?"</a></li>
-            <li><a href="#features" class="nav-link">"Features"</a></li>
-            <li><a href="#how-it-works" class="nav-link">"How it Works"</a></li>
-            <li><a href={CONFIG.github_url} target="_blank" class="nav-link">"GitHub"</a></li>
+            <li>
+              <a href="#problems" class="nav-link">
+                "Why LedgerFlow?"
+              </a>
+            </li>
+            <li>
+              <a href="#features" class="nav-link">
+                "Features"
+              </a>
+            </li>
+            <li>
+              <a href="#how-it-works" class="nav-link">
+                "How it Works"
+              </a>
+            </li>
+            <li>
+              <a href=CONFIG.github_url target="_blank" class="nav-link">
+                "GitHub"
+              </a>
+            </li>
           </ul>
           <div class="nav-buttons">
-            <a href={CONFIG.github_url} target="_blank" class="btn btn-nav btn-secondary">"GitHub"</a>
-            <a href={CONFIG.telegram_bot_url} target="_blank" class="btn btn-nav">"Get Started"</a>
+            <a href=CONFIG.github_url target="_blank" class="btn btn-nav btn-secondary">
+              "GitHub"
+            </a>
+            <a href=CONFIG.telegram_bot_url target="_blank" class="btn btn-nav">
+              "Get Started"
+            </a>
           </div>
           <button class="mobile-menu-toggle">"☰"</button>
         </div>
@@ -97,14 +179,12 @@ fn HeroSection() -> impl IntoView {
         <div class="hero-background"></div>
         <div class="hero-content fade-in-up">
           <h1 class="hero-title">{CONFIG.hero_title}</h1>
-          <p class="hero-subtitle">
-            {CONFIG.hero_subtitle}
-          </p>
+          <p class="hero-subtitle">{CONFIG.hero_subtitle}</p>
           <div class="cta-buttons fade-in-up-delay-1">
-            <a href={CONFIG.github_url} target="_blank" class="btn btn-secondary">
+            <a href=CONFIG.github_url target="_blank" class="btn btn-secondary">
               "View on GitHub"
             </a>
-            <a href={CONFIG.telegram_bot_url} target="_blank" class="btn btn-primary">
+            <a href=CONFIG.telegram_bot_url target="_blank" class="btn btn-primary">
               "Start Receiving Payments via Telegram"
             </a>
           </div>
@@ -123,16 +203,20 @@ fn ProblemSection() -> impl IntoView {
         <div class="container">
           <h2 class="section-title fade-in-up">"Tired of Traditional Payment Rails?"</h2>
           <div class="problem-grid">
-            {PROBLEMS.iter().enumerate().map(|(i, (icon, title, description))| {
-              let delay_class = format!("fade-in-up-delay-{}", i + 1);
-              view! {
-                <div class=format!("problem-card {}", delay_class)>
-                  <div class="problem-icon">{*icon}</div>
-                  <h3 class="problem-title">{*title}</h3>
-                  <p class="problem-description">{*description}</p>
-                </div>
-              }
-            }).collect_view()}
+            {PROBLEMS
+              .iter()
+              .enumerate()
+              .map(|(i, (icon, title, description))| {
+                let delay_class = format!("fade-in-up-delay-{}", i + 1);
+                view! {
+                  <div class=format!("problem-card {}", delay_class)>
+                    <div class="problem-icon">{*icon}</div>
+                    <h3 class="problem-title">{*title}</h3>
+                    <p class="problem-description">{*description}</p>
+                  </div>
+                }
+              })
+              .collect_view()}
           </div>
         </div>
       </section>
@@ -146,16 +230,20 @@ fn SolutionSection() -> impl IntoView {
         <div class="container">
           <h2 class="section-title fade-in-up">"Welcome to the Future of Payments."</h2>
           <div class="solution-grid">
-            {SOLUTIONS.iter().enumerate().map(|(i, (icon, title, description))| {
-              let delay_class = format!("fade-in-up-delay-{}", i + 1);
-              view! {
-                <div class=format!("solution-card {}", delay_class)>
-                  <div class="solution-icon">{*icon}</div>
-                  <h3 class="solution-title">{*title}</h3>
-                  <p class="solution-description">{*description}</p>
-                </div>
-              }
-            }).collect_view()}
+            {SOLUTIONS
+              .iter()
+              .enumerate()
+              .map(|(i, (icon, title, description))| {
+                let delay_class = format!("fade-in-up-delay-{}", i + 1);
+                view! {
+                  <div class=format!("solution-card {}", delay_class)>
+                    <div class="solution-icon">{*icon}</div>
+                    <h3 class="solution-title">{*title}</h3>
+                    <p class="solution-description">{*description}</p>
+                  </div>
+                }
+              })
+              .collect_view()}
           </div>
         </div>
       </section>
@@ -169,16 +257,20 @@ fn HowItWorksSection() -> impl IntoView {
         <div class="container">
           <h2 class="section-title fade-in-up">"Simple & Secure in 3 Steps"</h2>
           <div class="steps-container">
-            {HOW_IT_WORKS.iter().enumerate().map(|(i, (step, title, description))| {
-              let delay_class = format!("fade-in-up-delay-{}", i + 1);
-              view! {
-                <div class=format!("step-card {}", delay_class)>
-                  <div class="step-number">{*step}</div>
-                  <h3 class="step-title">{*title}</h3>
-                  <p class="step-description">{*description}</p>
-                </div>
-              }
-            }).collect_view()}
+            {HOW_IT_WORKS
+              .iter()
+              .enumerate()
+              .map(|(i, (step, title, description))| {
+                let delay_class = format!("fade-in-up-delay-{}", i + 1);
+                view! {
+                  <div class=format!("step-card {}", delay_class)>
+                    <div class="step-number">{*step}</div>
+                    <h3 class="step-title">{*title}</h3>
+                    <p class="step-description">{*description}</p>
+                  </div>
+                }
+              })
+              .collect_view()}
           </div>
         </div>
       </section>
@@ -192,16 +284,20 @@ fn FeaturesSection() -> impl IntoView {
         <div class="container">
           <h2 class="section-title fade-in-up">"Built for the Web3 Economy"</h2>
           <div class="features-grid">
-            {FEATURES.iter().enumerate().map(|(i, (icon, title, description))| {
-              let delay_class = format!("fade-in-up-delay-{}", i + 1);
-              view! {
-                <div class=format!("feature-card {}", delay_class)>
-                  <div class="feature-icon">{*icon}</div>
-                  <h3 class="feature-title">{*title}</h3>
-                  <p class="feature-description">{*description}</p>
-                </div>
-              }
-            }).collect_view()}
+            {FEATURES
+              .iter()
+              .enumerate()
+              .map(|(i, (icon, title, description))| {
+                let delay_class = format!("fade-in-up-delay-{}", i + 1);
+                view! {
+                  <div class=format!("feature-card {}", delay_class)>
+                    <div class="feature-icon">{*icon}</div>
+                    <h3 class="feature-title">{*title}</h3>
+                    <p class="feature-description">{*description}</p>
+                  </div>
+                }
+              })
+              .collect_view()}
           </div>
         </div>
       </section>
@@ -218,15 +314,15 @@ fn FinalCTASection() -> impl IntoView {
             "Ditch the old system. Embrace a more open, transparent, and efficient way to get paid."
           </p>
           <div class="cta-buttons fade-in-up-delay-2">
-            <a href={CONFIG.github_url} target="_blank" class="btn btn-secondary btn-large">
+            <a href=CONFIG.github_url target="_blank" class="btn btn-secondary btn-large">
               "View on GitHub"
             </a>
-            <a href={CONFIG.telegram_bot_url} target="_blank" class="btn btn-primary btn-large">
+            <a href=CONFIG.telegram_bot_url target="_blank" class="btn btn-primary btn-large">
               "Launch the Telegram Bot"
             </a>
           </div>
           <p class="cta-sub-link fade-in-up-delay-3">
-            <a href={CONFIG.testnet_contract_url} target="_blank" class="testnet-link">
+            <a href=CONFIG.testnet_contract_url target="_blank" class="testnet-link">
               "View our Testnet Contract on Uniscan"
             </a>
           </p>
@@ -248,5 +344,5 @@ fn Footer() -> impl IntoView {
 
 fn main() {
     console_error_panic_hook::set_once();
-    mount_to_body(|| view! { <App/> });
+    mount_to_body(|| view! { <App /> });
 }
