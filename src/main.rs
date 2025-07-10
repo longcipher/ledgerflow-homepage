@@ -152,11 +152,6 @@ fn Navbar() -> impl IntoView {
                 "How it Works"
               </a>
             </li>
-            <li>
-              <a href=CONFIG.github_url target="_blank" class="nav-link">
-                "GitHub"
-              </a>
-            </li>
           </ul>
           <div class="nav-buttons">
             <a href=CONFIG.github_url target="_blank" class="btn btn-nav btn-secondary">
