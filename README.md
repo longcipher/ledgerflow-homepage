@@ -2,202 +2,227 @@
 
 **Make Value Flow Like Information.**
 
-LedgerFlow is a modern, dark-themed landing page for a Web3 payment gateway built with Leptos and Rust. It showcases a permissionless, self-custody payment solution for creators and developers in the Web3 ecosystem.
+A modern, dark-themed landing page for a Web3 payment gateway built with Leptos and Rust. LedgerFlow showcases a permissionless, self-custody payment solution for creators and developers in the Web3 ecosystem.
 
 ## 🌟 Features
 
-- 🌙 **Dark Theme**: Modern, technological design with blue and purple glowing accents
-- ⚡ **Web3 Native**: Built for the decentralized economy
-- 📱 **Responsive**: Perfect on desktop and mobile devices
-- 🚀 **High Performance**: Powered by Rust and Leptos
-- 🎨 **Animated**: Smooth animations and glowing effects
-- � **Self-Custody Focus**: Emphasizes user control and security
+- 🌙 **Dark Web3 Theme**: Modern UI with blue and purple glowing accents
+- ⚡ **Rust Performance**: Built with Leptos for lightning-fast WASM performance
+- 📱 **Fully Responsive**: Optimized for desktop and mobile devices
+- 🎨 **Smooth Animations**: CSS animations with fade-in effects and hover states
+- 🔧 **Easy Configuration**: Simple config constants for quick customization
+- 🌐 **Static Deployment**: Zero server requirements, deploy anywhere
 
 ## 🏗️ Page Structure
 
-### 🧭 Navigation
-- **Logo**: LedgerFlow with gradient text
-- **Menu**: Why LedgerFlow? | Features | How it Works
-- **CTA Button**: Get Started (links to Telegram Bot)
+The landing page is built with modular Leptos components:
 
-### 🚀 Hero Section
-- **Headline**: "Make Value Flow Like Information."
-- **Subtitle**: Explains the permissionless, self-custody value proposition
-- **Primary CTA**: "Start Receiving Payments via Telegram"
-- **Sub-text**: "No registration, no borders, just pure value flow."
+### 🧭 Navigation (`Navbar`)
+- Logo with brand name
+- Navigation links: "Why LedgerFlow?", "Features", "How it Works"
+- Action buttons: "GitHub" and "Get Started"
+- Mobile-responsive menu toggle
 
-### ❌ Problem Section
-- **Title**: "Tired of Traditional Payment Rails?"
-- **Problems**: High Barriers, Frozen Funds, Hidden Fees, Geographic Walls
+### 🚀 Hero Section (`HeroSection`)
+- Primary headline with animated background
+- Value proposition subtitle
+- Dual CTAs: "View on GitHub" and "Start Receiving Payments via Telegram"
+- Supporting text with fade-in animations
 
-### ✅ Solution Section  
-- **Title**: "Welcome to the Future of Payments."
-- **Solutions**: Permissionless, Self-Custody, Transparent, Global
+### ❌ Problem Section (`ProblemSection`)
+- Title: "Tired of Traditional Payment Rails?"
+- Four problem cards:
+  - 🏢 **High Barriers**: Company registration requirements
+  - 🔒 **Frozen Funds**: Platform control over user funds
+  - 💸 **Hidden Fees**: Unpredictable costs and conversion fees
+  - 🌍 **Geographic Walls**: Banking and country restrictions
 
-### 🔄 How It Works
-- **Title**: "Simple & Secure in 3 Steps"
-- **Steps**: Create Link → Customer Pays → Receive Funds
+### ✅ Solution Section (`SolutionSection`)  
+- Title: "Welcome to the Future of Payments."
+- Four solution cards:
+  - ⚡ **Truly Permissionless**: Only crypto address needed
+  - 🔐 **Self-Custody**: Direct on-chain vault control
+  - 💎 **Radical Transparency**: Only blockchain gas fees
+  - 🌐 **Genuinely Global**: Internet-only requirements
 
-### 🛠️ Features Section
-- **Title**: "Built for the Web3 Economy"
-- **Features**: Non-Custodial Vault, Multi-Chain, Programmable, Gasless
+### 🔄 How It Works Section (`HowItWorksSection`)
+- Title: "Simple & Secure in 3 Steps"
+- Three-step process:
+  1. **Create Link**: Generate payment request via Telegram Bot
+  2. **Customer Pays**: USDC sent to PaymentVault contract
+  3. **Receive Funds**: On-chain confirmation and instant vault arrival
 
-### 📞 Final CTA
-- **Title**: "Ready to Join the Open Financial Network?"
-- **Primary Button**: "Launch the Telegram Bot"
-- **Secondary Link**: "View our Testnet Contract on Uniscan"
+### 🛠️ Features Section (`FeaturesSection`)
+- Title: "Built for the Web3 Economy"
+- Four core features:
+  - 🏛️ **Non-Custodial Vault**: Single audited smart contract
+  - 🔗 **Seamless Multi-Chain**: EVM chain compatibility
+  - ⚙️ **Programmable & Composable**: DeFi integration ready
+  - ⛽ **Gasless Experience**: Permit signature support
 
-## 🚀 Development and Deployment
+### 📞 Final CTA Section (`FinalCTASection`)
+- Title: "Ready to Join the Open Financial Network?"
+- Primary action: "Launch the Telegram Bot"
+- Secondary action: "View on GitHub"
+- Testnet contract link on Uniscan
+
+### 🏠 Footer (`Footer`)
+
+- Copyright notice with current year
+- Built with Leptos & Rust branding
+
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Rust toolchain
-- Trunk (for building WASM applications)
+- **Rust**: Latest stable version
+- **Trunk**: WASM web application bundler
 
-### Install Dependencies
+### Installation
 
 ```bash
+# Install Rust if not already installed
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 # Install Trunk
 cargo install trunk
 
-# Or using npm
+# Or install via npm
 npm install -g trunk
 ```
 
-### Run Development Server
+### Development
 
 ```bash
+# Clone the repository
+git clone https://github.com/longcipher/ledgerflow-homepage.git
+cd ledgerflow-homepage
+
+# Start development server
 trunk serve
+
+# Open browser to http://127.0.0.1:8080
 ```
 
-Visit http://127.0.0.1:8080 to view the page
-
-### Build for Production
+### Production Build
 
 ```bash
+# Build for production
 trunk build --release
+
+# Files will be in dist/ directory
 ```
 
-## 🎨 Design Features
+## 🎨 Design System
 
 ### Color Palette
 
-- **Primary**: Blue (#3b82f6) - Technology and trust
-- **Secondary**: Purple (#8b5cf6) - Innovation and Web3
-- **Accent**: Cyan (#06b6d4) - Flow and movement
-- **Background**: Deep blacks (#0a0a0a, #111111) - Sophistication
-- **Text**: White to gray gradient - Clarity and readability
+- **Primary Blue**: `#3b82f6` - Technology and trust
+- **Secondary Purple**: `#8b5cf6` - Innovation and Web3
+- **Accent Cyan**: `#06b6d4` - Flow and movement
+- **Background**: `#0a0a0a` / `#111111` - Dark sophistication
+- **Text**: `#ffffff` to `#71717a` - Clarity gradient
+
+### Typography
+
+- **Font Family**: Inter (Google Fonts)
+- **Weights**: 100-900 available
+- **Hierarchy**: Clear distinction between titles, subtitles, and body text
 
 ### Visual Effects
 
 - **Glow Effects**: Blue and purple shadows on interactive elements
 - **Gradient Text**: Primary headlines use blue-to-purple gradients
-- **Floating Animation**: Subtle background element movement
-- **Hover Transforms**: Cards lift and glow on interaction
-- **Smooth Transitions**: All interactions have 0.3s ease timing
+- **Hover States**: Cards lift and glow on interaction
+- **Animations**: Fade-in effects with staggered delays
 
-### Typography
+## 🛠️ Configuration
 
-- **Font**: Inter - Modern, clean, and highly readable
-- **Hierarchy**: Clear distinction between titles, subtitles, and body text
-- **Weights**: Strategic use of font weights (400-800) for emphasis
+### Core Settings
 
-## 🛠️ Customization Guide
-
-### Quick Content Updates
-
-Edit the configuration constants in `src/main.rs`:
+Edit the `CONFIG` struct in `src/main.rs`:
 
 ```rust
 const CONFIG: LedgerFlowConfig = LedgerFlowConfig {
-    brand_name: "YourBrand",
-    hero_title: "Your Custom Headline",
-    hero_subtitle: "Your value proposition...",
-    telegram_bot_url: "https://t.me/YourBot",
-    testnet_contract_url: "https://explorer.com/contract/0x...",
+    brand_name: "LedgerFlow",
+    hero_title: "Make Value Flow Like Information.",
+    hero_subtitle: "The open source, permissionless, self-custody payment gateway...",
+    telegram_bot_url: "https://t.me/LedgerFlowBot",
+    github_url: "https://github.com/longcipher/ledgerflow",
+    testnet_contract_url: "https://sepolia.uniscan.xyz/address/0x...",
 };
 ```
 
-### Updating Problems and Solutions
+### Content Arrays
 
-Modify the arrays in `src/main.rs`:
+Modify the problem/solution/feature arrays:
 
 ```rust
+// Problems users face
 const PROBLEMS: &[(&str, &str, &str)] = &[
-    ("�", "Your Problem", "Problem description..."),
+    ("🏢", "High Barriers", "Forced to register a company..."),
     // Add more problems...
 ];
 
+// Solutions LedgerFlow provides
 const SOLUTIONS: &[(&str, &str, &str)] = &[
-    ("⚡", "Your Solution", "Solution description..."),
+    ("⚡", "Truly Permissionless", "All you need is a crypto address..."),
     // Add more solutions...
+];
+
+// Core features
+const FEATURES: &[(&str, &str, &str)] = &[
+    ("🏛️", "Non-Custodial Vault", "A single, audited smart contract..."),
+    // Add more features...
 ];
 ```
 
-### Color Theme Customization
+### Styling Customization
 
 Update CSS variables in `style.css`:
+
 ```css
 :root {
-  --color-primary: #3758f9;      /* 主要颜色 */
-  --color-dark: #111928;         /* 深色文本 */
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --color-primary: #3b82f6;
+  --color-secondary: #8b5cf6;
+  --color-accent: #06b6d4;
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #111111;
+  /* ... more variables */
 }
 ```
 
-### 3. 添加新功能特性
-要添加更多功能特性，只需在 `FEATURES` 数组中添加新的元组：
-```rust
-const FEATURES: &[(&str, &str, &str)] = &[
-    ("🚀", "Lightning Fast", "描述..."),
-    ("🛡️", "Secure & Reliable", "描述..."),
-    ("�", "Cross Platform", "描述..."),
-    ("🎨", "Beautiful Design", "新特性描述..."),  // 新增
-    ("⚡", "High Performance", "另一个新特性..."), // 新增
-];
-```
-
-### 4. 修改页面内容
-- **导航栏**: 在 `Navbar` 组件中修改链接和文本
-- **英雄区域**: 在 `HeroSection` 组件中修改按钮文本
-- **CTA区域**: 在 `CTASection` 组件中修改文案和表单
-- **页脚**: 在 `Footer` 组件中修改版权信息
-
-### 5. 品牌定制
-- 修改 `CONFIG.brand_name` 更新品牌名称
-- 更新 `index.html` 中的页面标题和元数据
-- 替换 favicon (当前使用火箭 emoji)
-
-## 技术栈
-
 ## 📦 Tech Stack
 
-- **Frontend Framework**: Leptos (Rust-based reactive UI)
-- **Build Tool**: Trunk (WASM application bundler)
-- **Styling**: Custom CSS with CSS variables
-- **Icons**: Unicode emojis for lightweight design
-- **Fonts**: Google Fonts (Inter)
-- **Deployment**: Static hosting compatible
+- **Frontend Framework**: [Leptos](https://leptos.dev/) - Rust-based reactive UI
+- **Build Tool**: [Trunk](https://trunkrs.dev/) - WASM application bundler
+- **Styling**: Custom CSS with CSS variables and animations
+- **Icons**: Unicode emojis for lightweight, universal compatibility
+- **Fonts**: Inter from Google Fonts
+- **Deployment**: Static files, compatible with any hosting
 
 ## 🏗️ Project Structure
 
-```
-leptos-tutorial/
+```text
+ledgerflow-homepage/
 ├── src/
-│   └── main.rs          # Main Leptos components and configuration
-├── style.css            # Dark theme CSS with Web3 styling
-├── index.html           # HTML template with LedgerFlow branding
-├── Cargo.toml           # Rust dependencies
-├── .gitignore           # Comprehensive ignore patterns
-└── README.md            # Project documentation
+│   └── main.rs                 # Main Leptos components and config
+├── dist/                       # Built files (generated)
+├── target/                     # Rust build artifacts
+├── index.html                  # HTML template
+├── style.css                   # Dark theme CSS
+├── Cargo.toml                  # Rust dependencies
+├── Trunk.toml                  # Trunk configuration
+├── Justfile                    # Development commands
+├── leptosfmt.toml             # Leptos formatter config
+└── README.md                   # This file
 ```
 
-## 🚀 Deployment
+## 🌐 Deployment
 
-### Static Deployment
+### Static Hosting
 
-Build for production:
+The app builds to static files, deployable anywhere:
 
 ```bash
 trunk build --release
@@ -205,42 +230,67 @@ trunk build --release
 
 Deploy the `dist/` folder to:
 
-- **Vercel**: Import your repository and deploy
-- **Netlify**: Drag and drop the dist folder
-- **GitHub Pages**: Push to gh-pages branch
-- **IPFS**: For decentralized hosting
-- **Any static host**: Upload the dist contents
+- **Vercel**: Connect GitHub repo for automatic deployments
+- **Netlify**: Drag and drop dist folder or connect repo
+- **GitHub Pages**: Deploy from gh-pages branch
+- **AWS S3**: Static website hosting
+- **IPFS**: Decentralized hosting for Web3 alignment
 
-### Environment Setup
+### Development Commands
 
-1. **Domain Configuration**: Update any absolute URLs
-2. **Analytics**: Add your tracking codes to `index.html`
-3. **SEO**: Update meta tags and structured data
-4. **Performance**: Enable compression and CDN
+Using Just (justfile):
+
+```bash
+# Format code
+just format
+
+# Lint code
+just lint
+
+# Run tests
+just test
+```
+
+Or using Cargo directly:
+
+```bash
+# Format Rust code
+cargo fmt
+
+# Check for issues
+cargo clippy
+
+# Run tests
+cargo test
+```
 
 ## 🎯 Target Audience
 
 This landing page is designed for:
 
-- **Web3 Developers**: Technical documentation and clear integration steps
-- **Crypto-native Creators**: Self-custody and permissionless messaging
-- **DeFi Enthusiasts**: Emphasis on transparency and composability
-- **Global Users**: Borderless and accessible design
+- **Web3 Developers**: Clear technical messaging and integration focus
+- **Crypto Creators**: Self-custody and permissionless value propositions
+- **DeFi Users**: Emphasis on transparency and composability
+- **Global Entrepreneurs**: Borderless payment solutions
 
-## 🔗 Key Links
+## 🔗 External Links
 
-- **Telegram Bot**: [https://t.me/LedgerFlowBot](https://t.me/LedgerFlowBot)
-- **Testnet Contract**: Placeholder for Uniscan explorer link
-- **Documentation**: Can be added to navigation
-- **GitHub**: Repository for open-source credibility
+- **Live Demo**: [LedgerFlow Homepage](https://ledgerflow.dev)
+- **Telegram Bot**: [@LedgerFlowBot](https://t.me/LedgerFlowBot)
+- **GitHub Repository**: [longcipher/ledgerflow](https://github.com/longcipher/ledgerflow)
+- **Testnet Contract**: [Sepolia Uniscan](https://sepolia.uniscan.xyz/address/0x8b6f22009ae835795b9b33d75ad218c730db039b)
 
 ## 🤝 Contributing
 
-We welcome issues and pull requests to improve this Web3 landing page template.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run `just lint` to ensure code quality
+5. Submit a pull request
 
 ## 📄 License
 
-MIT License - Feel free to use this template for your own Web3 projects.
+MIT License - Feel free to use this template for your Web3 projects.
 
 ---
 
